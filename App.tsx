@@ -1,4 +1,4 @@
-import { Main } from "./src/views";
+import { Main } from "@src/views";
 
 export default function App() {
   return <Main />;

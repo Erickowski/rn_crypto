@@ -1,9 +1,7 @@
-import { Text, View } from "react-native";
+import { Platform, Text } from "react-native";
+
+import styles from "./header.module.scss";
 
 export function Header() {
-  return (
-    <View>
-      <Text>Header</Text>
-    </View>
-  );
+  return <Text style={styles[`container--${Platform.OS}`]}>Header</Text>;
 }

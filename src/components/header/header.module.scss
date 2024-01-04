@@ -1,0 +1,8 @@
+.container {
+  &--ios {
+    padding-top: 50px;
+  }
+  &--android {
+    padding-top: 10px;
+  }
+}
