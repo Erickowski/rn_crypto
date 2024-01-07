@@ -1,5 +1,10 @@
+import { Layout } from "@src/components";
 import { Main } from "@src/views";
 
 export default function App() {
-  return <Main />;
+  return (
+    <Layout>
+      <Main />
+    </Layout>
+  );
 }
