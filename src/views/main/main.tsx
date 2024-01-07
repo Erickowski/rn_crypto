@@ -5,7 +5,7 @@ import * as SplashScreen from "expo-splash-screen";
 
 SplashScreen.preventAutoHideAsync();
 
-import { Header } from "@src/components";
+import { Header, Hero } from "@src/components";
 
 export function Main() {
   const [fontsLoaded] = useFonts({
@@ -25,6 +25,7 @@ export function Main() {
   return (
     <View onLayout={onLayoutRootView}>
       <Header />
+      <Hero />
     </View>
   );
 }
