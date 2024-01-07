@@ -1,8 +1,19 @@
-.container {
+@import "../../styles";
+
+.header {
+  background-color: $majorelleBlue;
+  padding-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: $white;
+  margin-bottom: 30px;
+
   &--ios {
     padding-top: 50px;
-    font-family: "Lato-Black";
+    font-family: $latoBlack;
   }
+
   &--android {
     padding-top: 10px;
   }
