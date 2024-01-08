@@ -1,6 +1,6 @@
 import { ReactElement, useCallback } from "react";
 import { useFonts } from "expo-font";
-import { View } from "react-native";
+import { ScrollView } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 
 SplashScreen.preventAutoHideAsync();
@@ -25,5 +25,5 @@ export function Layout({ children }: ILayout) {
     return null;
   }
 
-  return <View onLayout={onLayoutRootView}>{children}</View>;
+  return <ScrollView onLayout={onLayoutRootView}>{children}</ScrollView>;
 }
