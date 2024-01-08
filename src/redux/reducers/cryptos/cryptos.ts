@@ -1,4 +1,4 @@
-import { IAction, REQUESTS_STATE } from "@src/types";
+import { IAction, ICryptos, REQUESTS_STATE } from "@src/types";
 
 import {
   REQUEST_CRYPTOS,
@@ -6,14 +6,9 @@ import {
   REQUEST_CRYPTOS_SUCCESS,
 } from "@src/redux/types";
 
-interface IState {
-  status: REQUESTS_STATE;
-  cryptos: any;
-}
-
-const initialState: IState = {
+const initialState: ICryptos = {
   status: REQUESTS_STATE.idle,
-  cryptos: {},
+  cryptos: [],
 };
 
 export const cryptosReducer = (state = initialState, action: IAction) => {
