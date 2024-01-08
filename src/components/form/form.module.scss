@@ -10,3 +10,17 @@
   font-size: 22px;
   margin: 20px 0;
 }
+
+.quote {
+  background-color: $majorelleBlue;
+  padding: 10px;
+  margin-top: 20px;
+
+  &__text {
+    color: $white;
+    font-size: 18px;
+    font-family: $latoBlack;
+    text-transform: uppercase;
+    text-align: center;
+  }
+}

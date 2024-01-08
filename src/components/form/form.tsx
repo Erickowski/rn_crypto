@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Text, View } from "react-native";
+import { Text, View, TouchableHighlight } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { useSelector } from "react-redux";
 
@@ -23,6 +23,8 @@ export function Form() {
   const handleCrypto = (crypto: string) => {
     dispatch(saveCrypto(crypto));
   };
+
+  const handleQuote = () => {};
 
   useEffect(() => {
     if (status === REQUESTS_STATE.idle) {
@@ -56,6 +58,9 @@ export function Form() {
           />
         ))}
       </Picker>
+      <TouchableHighlight style={styles.quote} onPress={handleQuote}>
+        <Text style={styles.quote__text}>Cotizar</Text>
+      </TouchableHighlight>
     </View>
   );
 }
