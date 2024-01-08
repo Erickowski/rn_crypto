@@ -1,12 +1,12 @@
 import { useEffect } from "react";
-import { Text, View, TouchableHighlight } from "react-native";
+import { Text, View, TouchableHighlight, Alert } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { useSelector } from "react-redux";
 
 import { COIN_LABELS, IStore, REQUESTS_STATE } from "@src/types";
 
 import { saveCoin, saveCrypto } from "@src/redux/actions";
-import { fetchCryptos } from "@src/redux/thunk";
+import { fetchCryptos, fetchPrice } from "@src/redux/thunk";
 import { useAppDispatch } from "@src/redux/utils";
 
 import styles from "./form.module.scss";
@@ -24,7 +24,22 @@ export function Form() {
     dispatch(saveCrypto(crypto));
   };
 
-  const handleQuote = () => {};
+  const handleQuote = () => {
+    if (coin.trim() === "" || crypto.trim() === "") {
+      showAlert();
+      return;
+    }
+
+    dispatch(fetchPrice({ coin, crypto }));
+  };
+
+  const showAlert = () => {
+    Alert.alert("¡Error!", "Ambos campos son obligatorios", [
+      {
+        text: "Ok",
+      },
+    ]);
+  };
 
   useEffect(() => {
     if (status === REQUESTS_STATE.idle) {
@@ -50,11 +65,12 @@ export function Form() {
         selectedValue={crypto}
         itemStyle={{ height: 120 }}
       >
+        <Picker.Item key="default" label="- Seleccione -" value="" />
         {cryptos.map((crypto) => (
           <Picker.Item
             key={crypto.CoinInfo.Name}
             label={crypto.CoinInfo.FullName}
-            value={crypto.CoinInfo.FullName}
+            value={crypto.CoinInfo.Name}
           />
         ))}
       </Picker>
