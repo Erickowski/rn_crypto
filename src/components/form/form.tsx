@@ -1,20 +1,20 @@
 import { useEffect } from "react";
 import { Text, View, TouchableHighlight, Alert } from "react-native";
 import { Picker } from "@react-native-picker/picker";
-import { useSelector } from "react-redux";
 
-import { COIN_LABELS, IStore, REQUESTS_STATE } from "@src/types";
+import { COIN_LABELS, REQUESTS_STATE } from "@src/types";
 
 import { saveCoin, saveCrypto } from "@src/redux/actions";
 import { fetchCryptos, fetchPrice } from "@src/redux/thunk";
 import { useAppDispatch } from "@src/redux/utils";
+import { formSelector, cryptoSelector } from "@src/redux/selectors";
 
 import styles from "./form.module.scss";
 
 export function Form() {
   const dispatch = useAppDispatch();
-  const { coin, crypto } = useSelector((store: IStore) => store.form);
-  const { status, cryptos } = useSelector((store: IStore) => store.cryptos);
+  const { coin, crypto } = formSelector();
+  const { status, cryptos } = cryptoSelector();
 
   const handleCoin = (coin: string) => {
     dispatch(saveCoin(coin));

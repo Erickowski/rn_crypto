@@ -20,7 +20,7 @@ export const priceReducer = (state = initialState, action: IAction) => {
       return {
         ...state,
         status: REQUESTS_STATE.success,
-        cryptos: action.payload,
+        price: action.payload,
       };
     }
     case REQUEST_PRICE_FAILED: {

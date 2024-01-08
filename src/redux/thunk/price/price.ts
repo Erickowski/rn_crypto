@@ -19,8 +19,7 @@ export const fetchPrice = ({ coin, crypto }: Params) => {
         `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${crypto}&tsyms=${coin}`
       )
       .then((response) => {
-        console.log(response.data.DISPLAY);
-        // dispatch(requestPriceSuccess(response.data));
+        dispatch(requestPriceSuccess(response.data.DISPLAY[crypto][coin]));
       })
       .catch(() => {
         dispatch(requestPriceFailed());
